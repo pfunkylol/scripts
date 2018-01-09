@@ -1,0 +1,2 @@
+$computers = Get-Content C:\Temp\fs.txt
+Invoke-Command -ComputerName $computers { Test-NetConnection -ComputerName ToWhichIptoTracert -TraceRoute } | select PSComputerName, TraceRoute | Export-Csv C:\Temp\traceroute.txt -NoTypeInformation

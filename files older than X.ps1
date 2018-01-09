@@ -1,0 +1,2 @@
+Get-ChildItem -Path "\\COMPUTER\PATH$" -Recurse   | Where-Object {$_.Length -gt 1MB} | Where-Object { $_.LastWriteTime -lt '01/01/2013' } | `
+Select  FullName, Name, @{Name=”SizeInMB”;Expression={“{0:N2}” -f ($_.length/1MB)}} | Export-Csv "C:\Temp\files older than 2013s.txt" -NoTypeInformation
